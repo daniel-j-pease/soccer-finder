@@ -1,7 +1,15 @@
-const fetch = require('node-fetch');
+const $ = require('jQuery');
 
-const API_URL = 'go here';
-
-// function getParks (req, res, next) {
-//   fetch(``)
-// }
+$(document).ready( () => {
+  $.ajax({
+    url: 'https://data.cityofnewyork.us/resource/9wwi-sb8x.json',
+    type: 'GET',
+    data: {
+      $limit: 5000,
+      $$app_token: 'JeDqnn45DUDxmyCHvv7QE2VvC',
+    },
+  })
+  .done((data) => {
+    console.log(data);
+  })
+});

@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const parks = require('./models/parks')
+// const parks = require('./models/parks')
 
 router.get('/', (req, res) => {
   res.render('home', {
