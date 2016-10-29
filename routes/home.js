@@ -1,12 +1,16 @@
-const router = require('express').Router();
-// const parks = require('./models/parks')
+const homeRouter = require('express').Router();
 
-router.get('/', (req, res) => {
-  res.render('home', {
-    results: res.results || [],
-    parks: res.parks || [],
-  });
+homeRouter.get('/', (req, res) => {
+  res.render('home');
 });
 
-module.exports = router;
+homeRouter.get('/signup', (req, res) => {
+  res.render('signup');
+});
+
+homeRouter.get('/login', (req, res) => {
+  res.render('login');
+});
+
+module.exports = homeRouter;
 
