@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>SEARCH</title>
+  <link rel="stylesheet" href="">
+</head>
+<body>
+  <h1>USER SEARCH</h1>
+
+  <form action="/userSearch" method="POST">
+    <input type="text" name="borough" value="Q" placeholder="borough">
+    <input type="submit" value="search">
+  </form>
+  <div id="proof">
+    <h4><%= user.username %></h4>
+  </div>
+  <form action="/auth?_method=DELETE" method="POST">
+    <input type="submit" value="Logout">
+  </form>
+</body>
+</html>
