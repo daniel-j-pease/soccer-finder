@@ -3,7 +3,7 @@ const { getParks } = require('../../services/parks');
 const { authenticate }   = require('../../lib/auth');
 const { getFacs } = require('../../services/facs');
 
-router.get('/', getParks, getFacs, authenticate, (req, res) => {
+router.get('/', authenticate, (req, res) => {
   res.render('search/user', {
     user: res.user,
   });
