@@ -15,6 +15,7 @@ router.post('/', getParks, getFacs, authenticate, (req, res) => {
     facs: res.facs,
     user: res.user,
   });
+  // res.json(res.parks);
 });
 
 module.exports = router;

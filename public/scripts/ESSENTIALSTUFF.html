@@ -1,0 +1,19 @@
+<% for (let i = 0; i < parks.length; i++) { %>
+    <% if (parks[i].typecatego === "Recreation Field/Courts") { %>
+    <div id="teaser<%= i %>" class="teaser">
+      <div><%= parks[i].signname %></div>
+      <div><%= parks[i].location %></div>
+      <button id="<%= i %>" class="button">Learn More</button>
+    </div>
+    <div id="modal<%= i %>" class="modal">
+      <div><%= parks[i].signname %></div>
+      <div><%= parks[i].address %></div>
+      <div><%= parks[i].location %></div>
+      <div><%= parks[i].gispropnum %></div>
+      <div><%= facs[i].gispropnum %></div>
+
+      <button id="add<%= i %>" class="button">Add</button>
+      <button id="close<%= i %>" class="button">Close</button>
+    </div>
+    <% } %>
+  <% } %>
