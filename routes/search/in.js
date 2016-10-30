@@ -9,5 +9,9 @@ router.get('/', authenticate, getParks, getFacs, (req, res) => {
   });
 });
 
+router.post('/results', getParks, getFacs, (req, res) => {
+  res.send('yo')
+})
+
 module.exports = router;
 
