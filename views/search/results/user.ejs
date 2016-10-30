@@ -9,16 +9,34 @@
 <body>
   <h1>User Search Results</h1>
   <div class="parks">
-
+  <% //test comment %>
   <% let newObj = {} %>
-
   <% for (let i = 0; i < parks.length; i++) { %>
-
-    <% if (parks[i].gispropnum === facs[i].gispropnum) { %>
-    <%  %>
+    <% newObj[parks[i].gispropnum] = parks[i] %>
+  <% } %>
+  <% for (let i = 0; i < facs.length; i++) { %>
+    <% let temp = newObj[facs[i].gispropnum] %>
+    <% for (let key in facs[i]) { %>
+      <% temp[key] = facs[i][key] %>
     <% } %>
-    <%  %>
+  <% } %>
 
+  <% for (let key in newObj) { %>
+    <% if (newObj[key].typecatego === 'Recreation Field/Courts') { %>
+    <div id="teaser<%= key %>" class="teaser">
+      <div><%= newObj[key].signname %></div>
+      <div><%= newObj[key].location %></div>
+      <button id="<%= key %>" class="button">Learn More</button>
+    </div>
+    <div id="modal<%= key %>" class="modal">
+      <div><%= newObj[key].signname %></div>
+      <div><%= newObj[key].address %></div>
+      <div><%= newObj[key].location %></div>
+      <div><%= newObj[key].surface_ty %></div>
+      <button id="add<%= key %>" class="button">Add</button>
+      <button id="close<%= key %>" class="button">Close</button>
+    </div>
+    <% } %>
   <% } %>
 
   </div>
