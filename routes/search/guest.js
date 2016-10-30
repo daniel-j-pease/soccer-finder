@@ -1,21 +1,18 @@
 const router = require('express').Router();
 const { getParks } = require('../../services/parks');
 const { getFacs } = require('../../services/facs');
-const { authenticate } = require('../../lib/auth')
 
 router.get('/', getParks, getFacs, (req, res) => {
-  res.render('search/search');
+  res.render('search/guest');
   // res.json(res.parks);
   // res.send('yo');
 });
 
-router.post('/results', getParks, getFacs, authenticate, (req, res) => {
-  res.render('search/results', {
+router.post('/', getParks, getFacs, (req, res) => {
+  res.render('search/results/guest', {
     parks: res.parks,
     facs: res.facs,
-    user: res.user,
   });
-  // res.json(res.facs)
 });
 
 module.exports = router;

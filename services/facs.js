@@ -6,11 +6,10 @@ const APP_TOKEN = process.env.APP_TOKEN;
 
 function getFacs(req, res, next) {
   console.log('getting facs');
-  fetch(`${API_URL}$$app_token=${APP_TOKEN}&gispropnum=${req.body.gispropnum}`)
+  fetch(`${API_URL}$$app_token=${APP_TOKEN}&borough=${req.body.borough}`)
   .then(r => r.json())
   .then((result) => {
     res.facs = result;
-    console.log(res.facs);
     next();
   })
   .catch((err) => {

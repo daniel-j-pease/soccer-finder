@@ -2,7 +2,7 @@ const express         = require('express');
 const logger          = require('morgan');
 const bodyParser      = require('body-parser');
 const methodOverride  = require('method-override');
-//what does silent/true do?
+//what does silent:true do?
 const dotEnv          = require('dotenv').config({silent: true});
 const session         = require('express-session');
 const cookieParser    = require('cookie-parser');
@@ -14,9 +14,9 @@ const SECRET          = 'tacos3000';
 
 const homeRoute = require('./routes/home');
 const authRoute = require('./routes/auth');
-const usersRoute = require('./routes/users');
-const searchRoute = require('./routes/search/search');
-const searchInRoute = require('./routes/search/in');
+const signupRoute = require('./routes/signup');
+const guestRoute = require('./routes/search/guest');
+const userRoute = require('./routes/search/user');
 // const parksRoute = require('./routes/park');
 
 app.use(logger('dev'));
@@ -36,9 +36,9 @@ app.use(session({
 
 app.use('/', homeRoute);
 app.use('/auth', authRoute);
-app.use('/users', usersRoute);
-app.use('/search', searchRoute);
-app.use('/search/in', searchInRoute);
+app.use('/signup', signupRoute);
+app.use('/guestSearch', guestRoute);
+app.use('/userSearch', userRoute);
 // app.use('/parks', parksRouter);
 
 app.listen(PORT, () => console.warn(`Server listening on port ${PORT}`));
