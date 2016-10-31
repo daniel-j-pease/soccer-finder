@@ -10,7 +10,6 @@ function getFacs(req, res, next) {
   .then(r => r.json())
   .then((result) => {
     res.facs = result;
-    console.log(res.facs[0])
     next();
   })
   .catch((err) => {

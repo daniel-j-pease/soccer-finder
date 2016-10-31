@@ -23,20 +23,28 @@
   <% } %>
 
   <% for (let key in newObj) { %>
-    <% if (newObj[key].typecatego === 'Recreation Field/Courts') { %>
+    <% if (
+
+    newObj[key].typecatego === 'Recreation Field/Courts' ||
+    newObj[key].rugby === 'Yes' ||
+    newObj[key].adultfootb === 'Yes' ||
+    newObj[key].flagfootba === 'Yes'
+
+    ) { %>
     <div id="teaser<%= key %>" class="teaser">
       <div><%= newObj[key].signname %></div>
       <div><%= newObj[key].location %></div>
-      <button id="<%= key %>" class="button">Learn More</button>
+      <div><%= newObj[key].typecatego %></div>
+      <button id="open<%= key %>" class="open button">Learn More</button>
     </div>
     <div id="modal<%= key %>" class="modal">
       <div><%= newObj[key].signname %></div>
       <div><%= newObj[key].address %></div>
       <div><%= newObj[key].location %></div>
       <div><%= newObj[key].surface_ty %></div>
-      <button id="add<%= key %>" class="button">Add</button>
-      <button id="close<%= key %>" class="button">Close</button>
+      <button id="close<%= key %>" class="close button">Close</button>
     </div>
+    <br>
     <% } %>
   <% } %>
 
