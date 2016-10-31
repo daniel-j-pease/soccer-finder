@@ -10,7 +10,7 @@ function getGames(req, res, next) {
       .find({ userId: { $eq: req.session.userId } })
       .toArray((toArrErr, data) => {
         if(toArrErr) return next(toArrErr);
-        res.favorites = data;
+        res.games = data;
         db.close();
         next();
       });
@@ -29,11 +29,11 @@ function makeGame(req, res, next) {
   }
 
   // Adding userId to insertObj
-  insertObj.favorite.userId = req.session.userId;
+  insertObj.game.userId = req.session.userId;
 
   getDB().then((db) => {
     db.collection('games')
-      .insert(insertObj.favorite, (insertErr, result) => {
+      .insert(insertObj.game, (insertErr, result) => {
         if (insertErr) return next(insertErr);
         res.saved = result;
         db.close();

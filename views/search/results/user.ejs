@@ -23,13 +23,12 @@
   <% } %>
 
   <% for (let key in newObj) { %>
+
     <% if (
-
-    newObj[key].typecatego === 'Recreation Field/Courts' ||
-    newObj[key].rugby === 'Yes' ||
-    newObj[key].adultfootb === 'Yes' ||
-    newObj[key].flagfootba === 'Yes'
-
+      newObj[key].typecatego === 'Recreation Field/Courts' ||
+      newObj[key].rugby === 'Yes' ||
+      newObj[key].adultfootb === 'Yes' ||
+      newObj[key].flagfootba === 'Yes'
     ) { %>
     <div id="teaser<%= key %>" class="teaser">
       <div><%= newObj[key].signname %></div>
@@ -42,8 +41,28 @@
       <div><%= newObj[key].address %></div>
       <div><%= newObj[key].location %></div>
       <div><%= newObj[key].surface_ty %></div>
+
+      <% for (let i = 0; i < games.length; i++) { %>
+      <%= console.log(games[i].park, newObj[key].gispropnum) %>
+        <% if (games[i].park === newObj[key].gispropnum) { %>
+          <div id="existing">
+            <div> <%= games[i].name %> </div>
+            <div> <%= games[i].date %> </div>
+          </div>
+        <% } %>
+
+      <% } %>
+
+      <form action="/create" method="POST">
+        <input type="text" name="game[name]" value="name">
+        <input type="date" name="game[date]" value="date">
+        <input type="time" name="game[time]" value="time">
+        <input type="hidden" name="game[park]" value="<%= key %>">
+        <input type="submit">
+      </form>
+      <button id="add<%= key %>" class="add button">Create New</button>
+      <button id="games<%= key %>" class="games button">Show Games</button>
       <button id="close<%= key %>" class="close button">Close</button>
-      <a id="add<%= key %>" class="add button" href="/create">Add</a>
     </div>
     <br>
     <% } %>
