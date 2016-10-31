@@ -10,7 +10,7 @@ const path            = require('path')
 
 const app             = express();
 const PORT            = process.argv[2] || process.env.PORT || 3000;
-const SECRET          = 'tacos3000';
+const SECRET          = 'maybeishouldgobacktowaitingtables';
 
 const homeRoute = require('./routes/home');
 const authRoute = require('./routes/auth');
@@ -18,7 +18,6 @@ const signupRoute = require('./routes/signup');
 const guestRoute = require('./routes/search/guest');
 const userRoute = require('./routes/search/user');
 const createRoute = require('./routes/create');
-// const parksRoute = require('./routes/park');
 
 app.use(logger('dev'));
 app.use(express.static(path.join(__dirname, 'public')));

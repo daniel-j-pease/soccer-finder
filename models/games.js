@@ -29,7 +29,7 @@ function makeGame(req, res, next) {
   }
 
   // Adding userId to insertObj
-  insertObj.game.userId = req.session.userId;
+  // insertObj.game.userId = req.session.userId;
 
   getDB().then((db) => {
     db.collection('games')

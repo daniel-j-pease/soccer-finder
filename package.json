@@ -2,6 +2,9 @@
   "name": "soccer-finder",
   "version": "1.0.0",
   "description": "create and join pickup soccer games in NYC",
+  "engine": {
+    "node": "6.6.0"
+  },
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
