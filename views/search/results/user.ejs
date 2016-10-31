@@ -8,6 +8,9 @@
 </head>
 <body>
   <h1>User Search Results</h1>
+  <div id="proof">
+    <h2>logged in as <%= user.username %></h4>
+  </div>
   <div class="parks">
 
   <% //test comment %>
@@ -21,6 +24,8 @@
       <% temp[key] = facs[i][key] %>
     <% } %>
   <% } %>
+
+  <%= console.log(games) %>
 
   <% for (let key in newObj) { %>
 
@@ -45,9 +50,10 @@
       <% for (let i = 0; i < games.length; i++) { %>
       <%= console.log(games[i].park, newObj[key].gispropnum) %>
         <% if (games[i].park === newObj[key].gispropnum) { %>
-          <div id="existing">
-            <div> <%= games[i].name %> </div>
-            <div> <%= games[i].date %> </div>
+          <div id="existing" class="others">
+            <h3>Other games</h3>
+            <div> name: <%= games[i].name %> </div>
+            <div> date: <%= games[i].date %> </div>
           </div>
         <% } %>
 
@@ -69,9 +75,7 @@
   <% } %>
 
   </div>
-  <div id="proof">
-    <h4><%= user.username %></h4>
-  </div>
+
   <form action="/auth?_method=DELETE" method="POST">
     <input type="submit" value="Logout">
   </form>

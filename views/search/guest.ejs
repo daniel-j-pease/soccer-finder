@@ -8,8 +8,17 @@
 </head>
 <body>
   <h1>SEARCH</h1>
-  <form action="/guestSearch/" method="POST">
-    <input type="text" name="borough" id="" placeholder="borough">
+  <form action="/guestSearch" method="POST">
+    <select name="borough" id="borough">
+      <option disabled selected value>Get Parks By Borough</option>
+      <option value="Q">Queens</option>
+      <option value="B">Brooklyn</option>
+      <option value="X">Bronx</option>
+      <option value="M">Manhattan</option>
+      <option value="R">Staten Island</option>
+    </select>
+    <input type="text" name="zipcode" placeholder="zipcode">
+    <input type="submit" value="search">
   </form>
 
   <nav>

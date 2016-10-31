@@ -1,17 +1,17 @@
 const router = require('express').Router();
 const { getParks } = require('../../services/parks');
 const { getFacs } = require('../../services/facs');
+const { getGames } = require('../../models/games');
 
 router.get('/', getParks, getFacs, (req, res) => {
   res.render('search/guest');
-  // res.json(res.parks);
-  // res.send('yo');
 });
 
-router.post('/', getParks, getFacs, (req, res) => {
+router.post('/', getParks, getFacs, getGames, (req, res) => {
   res.render('search/results/guest', {
-    parks: res.parks,
-    facs: res.facs,
+    parks: res.parks || [],
+    facs: res.facs || [],
+    games: res.games || [],
   });
 });
 

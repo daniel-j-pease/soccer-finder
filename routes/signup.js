@@ -10,8 +10,8 @@ const usersRouter  = express.Router();
  * Creates a new user by handling the POST request from a form with action `/users`
  * It uses the createUser middleware from the user model
  */
-usersRouter.post('/', createUser, (req, res) => {
-  res.redirect('/search/user');
+usersRouter.post('/', createUser, authenticate, (req, res) => {
+  res.redirect('/');
 });
 
 /**

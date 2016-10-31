@@ -12,9 +12,9 @@ router.get('/', authenticate, (req, res) => {
 
 router.post('/', getParks, getFacs, getGames, authenticate, (req, res) => {
   res.render('search/results/user', {
-    parks: res.parks,
-    facs: res.facs,
-    user: res.user,
+    parks: res.parks || [],
+    facs: res.facs || [],
+    user: res.user || [],
     games: res.games,
   });
 });

@@ -1,6 +1,18 @@
+body {
+  font-family: 'Lato', sans-serif;
+}
+
+#siteTitle {
+  font-family: 'Shrikhand', cursive;
+}
+
 .modal {
   display: none;
   background-color: #ADDFAD;
   height: auto
   width: auto
+}
+
+.others {
+  background-color: #FFBAD2;
 }
