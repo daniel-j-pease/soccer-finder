@@ -10,6 +10,7 @@
   <h1>User Search Results</h1>
   <div id="proof">
     <h2>logged in as <%= user.username %></h4>
+    <a href="/profile">Profile</a>
   </div>
   <div class="parks">
 
@@ -24,8 +25,6 @@
       <% temp[key] = facs[i][key] %>
     <% } %>
   <% } %>
-
-  <%= console.log(games) %>
 
   <% for (let key in newObj) { %>
 
@@ -48,7 +47,6 @@
       <div><%= newObj[key].surface_ty %></div>
 
       <% for (let i = 0; i < games.length; i++) { %>
-      <%= console.log(games[i].park, newObj[key].gispropnum) %>
         <% if (games[i].park === newObj[key].gispropnum) { %>
           <div id="existing" class="others">
             <h3>Other games</h3>
@@ -59,7 +57,7 @@
 
       <% } %>
 
-      <form action="/create" method="POST">
+      <form action="/profile/games" method="POST">
         <input type="text" name="game[name]" value="name">
         <input type="date" name="game[date]" value="date">
         <input type="time" name="game[time]" value="time">

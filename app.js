@@ -17,7 +17,7 @@ const authRoute = require('./routes/auth');
 const signupRoute = require('./routes/signup');
 const guestRoute = require('./routes/search/guest');
 const userRoute = require('./routes/search/user');
-const createRoute = require('./routes/create');
+const profileRoute = require('./routes/profile');
 
 app.use(logger('dev'));
 app.use(express.static(path.join(__dirname, 'public')));
@@ -39,6 +39,6 @@ app.use('/auth', authRoute);
 app.use('/signup', signupRoute);
 app.use('/guestSearch', guestRoute);
 app.use('/userSearch', userRoute);
-app.use('/create', createRoute);
+app.use('/profile', profileRoute);
 
 app.listen(PORT, () => console.warn(`Server listening on port ${PORT}`));

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>create</title>
+  <link rel="stylesheet" href="">
+</head>
+<body>
+  <h1>create!</h1>
+    <div id="proof">
+      <h2>logged in as <%= user.username %></h4>
+    </div>
+
+  <% for (let i = 0; i < games.length; i++) { %>
+    <div> <%= games[i].name %> </div>
+    <div> <%= games[i].date %> </div>
+    <div> <%= games[i].time %> </div>
+    <div> <%= games[i]._id %> </div>
+
+    <form action="/profile/games/<%= games[i]._id %>?_method=DELETE" method="POST">
+      <input type="submit" value="delete">
+    </form>
+
+  <% } %>
+
+
+</body>
+</html>

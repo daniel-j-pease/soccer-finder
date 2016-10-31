@@ -7,7 +7,23 @@ function getGames(req, res, next) {
   // find all games for your userId
   getDB().then((db) => {
     db.collection('games')
-      .find({ userId: { $eq: req.session.userId } })
+      .find()
+      .toArray((toArrErr, data) => {
+        if(toArrErr) return next(toArrErr);
+        res.games = data;
+        db.close();
+        next();
+      });
+      return false;
+  });
+  return false;
+}
+
+function getMyGames(req, res, next) {
+  // find all games for your userId
+  getDB().then((db) => {
+    db.collection('games')
+      .find({userId: { $eq: req.session.userId } })
       .toArray((toArrErr, data) => {
         if(toArrErr) return next(toArrErr);
         res.games = data;
@@ -29,7 +45,7 @@ function makeGame(req, res, next) {
   }
 
   // Adding userId to insertObj
-  // insertObj.game.userId = req.session.userId;
+  insertObj.game.userId = req.session.userId;
 
   getDB().then((db) => {
     db.collection('games')
@@ -44,7 +60,23 @@ function makeGame(req, res, next) {
   return false;
 }
 
+function deleteGame(req, res, next) {
+  getDB().then((db) => {
+    db.collection('games')
+      .findAndRemove({ _id: ObjectID(req.params.id) }, (removeErr, result) => {
+        if (removeErr) return next(removeErr);
+        res.removed = result;
+        db.close();
+        next();
+      });
+      return false;
+  });
+  return false;
+}
+
 module.exports = {
   getGames,
+  getMyGames,
   makeGame,
-}
+  deleteGame,
+};

@@ -14,8 +14,8 @@ $(document).ready( () => {
 
   function closeModal(e) {
     let thereModal = '#modal' + e.target.id.substr(5);
-    console.log(thereModal)
-    $(thereModal).hide()
+    console.log(thereModal);
+    $(thereModal).hide();
   }
 
 });
