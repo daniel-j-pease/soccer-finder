@@ -5,17 +5,18 @@
     <title>Sign up</title>
     <link rel="stylesheet" href="/styles/normalize.css">
     <link href="https://fonts.googleapis.com/css?family=Lato|Shrikhand" rel="stylesheet">
-    <link rel="stylesheet" href="/styles/signup.css">
+    <link rel="stylesheet" href="/styles/logsign.css">
   </head>
   <body>
-    <div id=signupContainer>
-      <h1>Sign up</h1>
+    <div id="container">
+      <a class="topRight" href="/">Home</a>
+      <h1>SIGN UP</h1>
       <form class="" action="/signup" method="post">
-        <input type="text" name="user[username]" value="" placeholder="Username">
-        <input type="password" name="user[password]" value="" placeholder="Password">
-        <input type="submit" value="Sign up">
+        <input id="username" type="text" name="user[username]" value="" placeholder="Username">
+        <input id="password" type="password" name="user[password]" value="" placeholder="Password">
+        <input id="submit" type="submit" value="Go!">
       </form>
-      <a href="/login">or Login</a>
+      <span> or <a href="/login">Login</a> </span>
     </div>
   </body>
 </html>

@@ -4,29 +4,35 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>SEARCH</title>
-  <link rel="stylesheet" href="">
+  <link rel="stylesheet" href="/styles/normalize.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato|Shrikhand" rel="stylesheet">
+  <link rel="stylesheet" href="/styles/search.css">
 </head>
 <body>
-  <h1>USER SEARCH</h1>
+  <div id="container">
+    <div id="proof" class="topRight">
+      <span> Welcome <a href="/profile"> <%= user.username%></a>! </span>
+    </div>
+    <h1>SEARCH BY</h1>
+    <form action="/userSearch" method="POST">
+      <select name="borough" id="borough">
+        <option disabled selected value>borough</option>
+        <option value="Q">Queens</option>
+        <option disabled value="B">Brooklyn</option>
+        <option disabled value="X">Bronx</option>
+        <option value="M">Manhattan</option>
+        <option value="R">Staten Island</option>
+      </select>
+      <div id="or">or</div>
+      <input type="text" name="Zipcode" placeholder="zipcode">
 
-  <form action="/userSearch" method="POST">
-    <select name="borough" id="borough">
-      <option disabled selected value>Get Parks By Borough</option>
-      <option value="Q">Queens</option>
-      <option disabled value="B">Brooklyn</option>
-      <option disabled value="X">Bronx</option>
-      <option value="M">Manhattan</option>
-      <option value="R">Staten Island</option>
-    </select>
-    <input type="text" name="zipcode" placeholder="zipcode">
-    <input type="submit" value="search">
-  </form>
-  <div id="proof">
-    <h4><%= user.username %></h4>
-    <a href="/profile">Profile</a>
+      <input type="submit" value="search">
+    </form>
+    <div id="logoutBox">
+      <form action="/auth?_method=DELETE" method="POST">
+        <input id="submit" type="submit" value="Logout">
+      </form>
+    </div>
   </div>
-  <form action="/auth?_method=DELETE" method="POST">
-    <input type="submit" value="Logout">
-  </form>
 </body>
 </html>

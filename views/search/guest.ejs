@@ -4,28 +4,34 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>SEARCH</title>
-  <link rel="stylesheet" href="">
+  <link rel="stylesheet" href="/styles/normalize.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato|Shrikhand" rel="stylesheet">
+  <link rel="stylesheet" href="/styles/search.css">
 </head>
 <body>
-  <h1>SEARCH</h1>
-  <form action="/guestSearch" method="POST">
-    <select name="borough" id="borough">
-      <option disabled selected value>Get Parks By Borough</option>
-      <option value="Q">Queens</option>
-      <option value="B">Brooklyn</option>
-      <option value="X">Bronx</option>
-      <option value="M">Manhattan</option>
-      <option value="R">Staten Island</option>
-    </select>
-    <input type="text" name="zipcode" placeholder="zipcode">
-    <input type="submit" value="search">
-  </form>
+  <div id="container">
+    <nav id="signLogNav" class="topRight">
+      <a href="/signup">Sign Up</a>
+      <a href="/login">Log In</a>
+    </nav>
+    <h1>SEARCH</h1>
+    <form action="/guestSearch" method="POST">
+      <select name="borough" id="borough">
+        <option disabled selected value>Get Parks By Borough</option>
+        <option value="Q">Queens</option>
+        <option value="B">Brooklyn</option>
+        <option value="X">Bronx</option>
+        <option value="M">Manhattan</option>
+        <option value="R">Staten Island</option>
+      </select>
+      <div id="or">or</div>
+      <input type="text" name="zipcode" placeholder="zipcode">
+      <input type="submit" value="search">
+    </form>
 
-  <nav>
-    <a href="/signup">Sign Up</a>
-    <a href="/login">Log In</a>
-  </nav>
 
+
+  </div>
   <script src="http://code.jquery.com/jquery-3.1.1.min.js" type="text/javascript"></script>
 </body>
 </html>

@@ -1,0 +1,54 @@
+h1 {
+  font-family: 'Shrikhand', cursive;
+  font-size: 5em;
+}
+
+.other,
+.modal {
+  display: none;
+}
+
+#top {
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  justify-content: space-around;
+}
+
+.signname {
+  font-size: 1.5em;
+  margin-bottom: 1vh;
+}
+
+.location {
+  font-size: .8em;
+  margin-bottom: 1vh;
+}
+
+.teaser {
+  display: inline-block;
+  height: 30vh;
+  width: 25vw;
+  margin: 2vh 2vw;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+#container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.modal {
+  background-color: #ADDFAD;
+  position: fixed;
+  top: 20vh;
+  left: 20vw;
+  z-index: 1;
+  width: 60vw;
+  height: 60vh;
+}

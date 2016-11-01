@@ -8,14 +8,16 @@ $(document).ready( () => {
 
   function openModal(e) {
     let hereModal = '#modal' + e.target.id.substr(4);
-    console.log(hereModal)
+    let hereOther = '#other' + e.target.id.substr(4);
     $(hereModal).css('display', 'block');
+    $(hereOther).css('display', 'block');
   }
 
   function closeModal(e) {
     let thereModal = '#modal' + e.target.id.substr(5);
-    console.log(thereModal);
+    let thereOther = '#other' + e.target.id.substr(5);
     $(thereModal).hide();
+    $(thereOther).hide();
   }
 
 });

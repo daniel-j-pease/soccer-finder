@@ -4,80 +4,82 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Search Results</title>
-  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/styles/normalize.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato|Shrikhand" rel="stylesheet">
+  <link rel="stylesheet" href="/styles/results.css">
 </head>
 <body>
-  <h1>User Search Results</h1>
-  <div id="proof">
-    <h2>logged in as <%= user.username %></h4>
-    <a href="/profile">Profile</a>
-  </div>
-  <div class="parks">
-
-  <% //test comment %>
-  <% let newObj = {} %>
-  <% for (let i = 0; i < parks.length; i++) { %>
-    <% newObj[parks[i].gispropnum] = parks[i] %>
-  <% } %>
-  <% for (let i = 0; i < facs.length; i++) { %>
-    <% let temp = newObj[facs[i].gispropnum] %>
-    <% for (let key in facs[i]) { %>
-      <% temp[key] = facs[i][key] %>
-    <% } %>
-  <% } %>
-
-  <% for (let key in newObj) { %>
-
-    <% if (
-      newObj[key].typecatego === 'Recreation Field/Courts' ||
-      newObj[key].rugby === 'Yes' ||
-      newObj[key].adultfootb === 'Yes' ||
-      newObj[key].flagfootba === 'Yes'
-    ) { %>
-    <div id="teaser<%= key %>" class="teaser">
-      <div><%= newObj[key].signname %></div>
-      <div><%= newObj[key].location %></div>
-      <div><%= newObj[key].typecatego %></div>
-      <button id="open<%= key %>" class="open button">Learn More</button>
+  <div id="top">
+    <div id="proof" class="topRight">
+      <span>Logged in as </span><a href="/profile"><%= user.username %></a>
     </div>
-    <div id="modal<%= key %>" class="modal">
-      <div><%= newObj[key].signname %></div>
-      <div><%= newObj[key].address %></div>
-      <div><%= newObj[key].location %></div>
-      <div><%= newObj[key].surface_ty %></div>
+    <h1>PARKS!</h1>
+    <form action="/auth?_method=DELETE" method="POST">
+      <input id="submit" type="submit" value="Logout">
+    </form>
 
-      <% for (let i = 0; i < games.length; i++) { %>
-        <% if (games[i].park === newObj[key].gispropnum) { %>
-          <div id="existing" class="others">
-            <h3>Other games</h3>
-            <div> name: <%= games[i].name %> </div>
-            <div> date: <%= games[i].date %> </div>
-          </div>
+  </div>
+
+      <% //Paris Leach and I worked on the following. %>
+      <% //This function organzies the two objects from the API %>
+      <% //calls into a single object, organized by park number. %>
+
+      <% let newObj = {} %>
+      <% for (let i = 0; i < parks.length; i++) { %>
+        <% newObj[parks[i].gispropnum] = parks[i] %>
+      <% } %>
+      <% for (let i = 0; i < facs.length; i++) { %>
+        <% let temp = newObj[facs[i].gispropnum] %>
+        <% for (let key in facs[i]) { %>
+          <% temp[key] = facs[i][key] %>
         <% } %>
-
       <% } %>
 
-      <form action="/profile/games" method="POST">
-        <input type="text" name="game[name]" value="name">
-        <input type="date" name="game[date]" value="date">
-        <input type="time" name="game[time]" value="time">
-        <input type="hidden" name="game[park]" value="<%= key %>">
-        <input type="submit">
-      </form>
-      <button id="add<%= key %>" class="add button">Create New</button>
-      <button id="games<%= key %>" class="games button">Show Games</button>
-      <button id="close<%= key %>" class="close button">Close</button>
-    </div>
-    <br>
+      <% //loop through the object of both APIs, selecting %>
+      <% //results that are relevant. %>
+
+    <div id="container">
+      <% for (let key in newObj) { %>
+
+        <% if (
+          newObj[key].typecatego === 'Recreation Field/Courts' ||
+          newObj[key].rugby === 'Yes' ||
+          newObj[key].adultfootb === 'Yes' ||
+          newObj[key].flagfootba === 'Yes'
+        ) { %>
+
+      <div id="teaser<%= key %>" class="teaser">
+        <div class="signname"><%= newObj[key].signname %></div>
+        <div class="location"><%= newObj[key].location %></div>
+        <button id="open<%= key %>" class="open button">Learn More</button>
+      </div>
+      <div id="modal<%= key %>" class="modal">
+        <div><%= newObj[key].signname %></div>
+        <div><%= newObj[key].address %></div>
+        <div><%= newObj[key].location %></div>
+        <div><%= newObj[key].surface_ty %></div>
+          <% for (let i = 0; i < games.length; i++) { %>
+            <% if (games[i].park === newObj[key].gispropnum) { %>
+              <div id="other<%= key %>" class="other">
+                <h5>Other games</h5>
+                <div> name: <%= games[i].name %> </div>
+                <div> date: <%= games[i].date %> </div>
+              </div>
+            <% } %>
+          <% } %>
+        <form action="/profile/games" method="POST">
+          <input type="text" name="game[name]" value="name">
+          <input type="date" name="game[date]" value="date">
+          <input type="time" name="game[time]" value="time">
+          <input type="hidden" name="game[park]" value="<%= key %>">
+          <input type="submit">
+        </form>
+        <button id="close<%= key %>" class="close button">Close</button>
+      </div>
+
+      <% } %>
     <% } %>
-  <% } %>
-
-  </div>
-
-  <form action="/auth?_method=DELETE" method="POST">
-    <input type="submit" value="Logout">
-  </form>
-  <a href="/userSearch">Back</a>
+    </div>
   <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js'></script>
   <script src="/scripts/modal.js" type="text/javascript"></script>
 </body>

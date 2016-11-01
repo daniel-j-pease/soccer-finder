@@ -3,13 +3,20 @@
   <head>
     <meta charset="utf-8">
     <title>Login</title>
+    <link rel="stylesheet" href="/styles/normalize.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato|Shrikhand" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/logsign.css">
   </head>
   <body>
-    <h1>Login</h1>
-    <form class="" action="/auth" method="post">
-        <input type="text" name="user[username]" value="" placeholder="Username">
-        <input type="password" name="user[password]" value="" placeholder="Password">
-        <input type="submit" name="name" value="Log in">
-    </form>
+    <div id="container">
+      <a class="topRight" href="/">Home</a>
+      <h1>LOGIN</h1>
+      <form class="" action="/auth" method="post">
+        <input id="username" type="text" name="user[username]" value="" placeholder="Username">
+        <input id="password" type="password" name="user[password]" value="" placeholder="Password">
+        <input id="submit" type="submit" name="name" value="Go!">
+      </form>
+      <span> or <a href="/signup">Sign Up</a> </span>
+    </div>
   </body>
 </html>
