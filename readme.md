@@ -9,11 +9,14 @@ This App allows users to search for parks with soccer facilities in a given area
 
 
 ##Wireframe##
+ 
+* Home Page
+![homepage](http://imgur.com/Yg8Lt23)
 
 ##Technologies##
 
-* NYCOPENDATA - [Parks Properties](https://data.cityofnewyork.us/City-Government/Parks-Properties/rjaj-zgq7)
-* NYCOPENDATA - [Athletic Facilities](https://data.cityofnewyork.us/City-Government/Athletic-Facilities/yann-8etk)
+* NYCOpenData - [Parks Properties](https://data.cityofnewyork.us/City-Government/Parks-Properties/rjaj-zgq7)
+* NYCOpenData - [Athletic Facilities](https://data.cityofnewyork.us/City-Government/Athletic-Facilities/yann-8etk)
 * NODE
 * Express
 * MongoDB
