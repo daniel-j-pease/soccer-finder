@@ -36,7 +36,7 @@
     ) { %>
 
       <div id="teaser<%= key %>" class="teaser">
-        <div><%= newObj[key].signname %></div>
+        <div class="signname"><%= newObj[key].signname %></div>
         <div><%= newObj[key].location %></div>
         <div><%= newObj[key].typecatego %></div>
         <button id="open<%= key %>" class="open button">Learn More</button>
@@ -48,10 +48,20 @@
         <div><%= newObj[key].location %></div>
         <div><%= newObj[key].surface_ty %></div>
         <a href="/signup">Sign up or login to create your own game!</a>
+
+      <% for (let i = 0; i < games.length; i++) { %>
+            <% if (games[i].park === newObj[key].gispropnum) { %>
+              <div id="other<%= key %>" class="other">
+                <br>
+                <div id="specialsign" class="signname">Other games</div>
+                <div> name: <%= games[i].name %> </div>
+                <div> date: <%= games[i].date %> </div>
+                <div> date: <%= games[i].time %> </div>
+              </div>
+            <% } %>
+          <% } %>
+<button id="close<%= key %>" class="close button">Close</button>
       </div>
-
-      <% console.log(games) %>
-
     <% } %>
   <% } %>
 

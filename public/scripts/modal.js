@@ -9,7 +9,7 @@ $(document).ready( () => {
   function openModal(e) {
     let hereModal = '#modal' + e.target.id.substr(4);
     let hereOther = '#other' + e.target.id.substr(4);
-    $(hereModal).css('display', 'block');
+    $(hereModal).css('display', 'flex');
     $(hereOther).css('display', 'block');
   }
 

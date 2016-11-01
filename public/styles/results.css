@@ -8,6 +8,10 @@ h1 {
   display: none;
 }
 
+.other {
+  margin-bottom: 1vh;
+}
+
 #top {
   display: flex;
   flex-direction: row;
@@ -18,6 +22,10 @@ h1 {
 .signname {
   font-size: 1.5em;
   margin-bottom: 1vh;
+}
+
+#speicalsign {
+  margin-bottom: 0;
 }
 
 .location {
@@ -51,4 +59,9 @@ h1 {
   z-index: 1;
   width: 60vw;
   height: 60vh;
+
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
 }

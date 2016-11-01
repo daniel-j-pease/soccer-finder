@@ -54,26 +54,30 @@
         <button id="open<%= key %>" class="open button">Learn More</button>
       </div>
       <div id="modal<%= key %>" class="modal">
-        <div><%= newObj[key].signname %></div>
+        <div class="signname"><%= newObj[key].signname %></div>
         <div><%= newObj[key].address %></div>
         <div><%= newObj[key].location %></div>
-        <div><%= newObj[key].surface_ty %></div>
+        <div>Surface Tpye:<%= newObj[key].surface_ty %></div>
           <% for (let i = 0; i < games.length; i++) { %>
             <% if (games[i].park === newObj[key].gispropnum) { %>
               <div id="other<%= key %>" class="other">
-                <h5>Other games</h5>
+                <br>
+                <div id="specialsign" class="signname">Other games</div>
                 <div> name: <%= games[i].name %> </div>
                 <div> date: <%= games[i].date %> </div>
               </div>
             <% } %>
           <% } %>
-        <form action="/profile/games" method="POST">
-          <input type="text" name="game[name]" value="name">
-          <input type="date" name="game[date]" value="date">
-          <input type="time" name="game[time]" value="time">
-          <input type="hidden" name="game[park]" value="<%= key %>">
-          <input type="submit">
-        </form>
+          <div id="addgame" class="signname">
+            Create Game!
+          </div>
+            <form action="/profile/games" method="POST">
+              <input type="text" name="game[name]" placeholder="game name">
+              <input type="date" name="game[date]" value="date">
+              <input type="time" name="game[time]" value="time">
+              <input type="hidden" name="game[park]" value="<%= key %>">
+              <input type="submit">
+            </form>
         <button id="close<%= key %>" class="close button">Close</button>
       </div>
 

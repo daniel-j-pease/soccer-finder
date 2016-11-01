@@ -1,0 +1,26 @@
+#container {
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100vw;
+}
+
+h1 {
+  font-family: 'Shrikhand', cursive;
+  font-size: 5em;
+}
+
+.game {
+  border: 1px solid black;
+  display: inline-block;
+  align-self: center;
+}
+
+#top {
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  justify-content: space-around;
+}
