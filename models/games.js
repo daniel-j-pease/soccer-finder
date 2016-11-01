@@ -1,7 +1,7 @@
 const { ObjectID } = require('mongodb');
 const { getDB }    = require('../lib/dbConnect.js');
 
-const DB_CONNECTION = process.env.MONGOLAB_URI || 'mongodb://localhost:27017/soccerFinder';
+const DB_CONNECTION = process.env.MONGODB_URI || 'mongodb://localhost:27017/soccerFinder';
 
 function getGames(req, res, next) {
   getDB().then((db) => {
