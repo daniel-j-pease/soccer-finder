@@ -2,7 +2,7 @@
   "name": "soccer-finder",
   "version": "1.0.0",
   "description": "create and join pickup soccer games in NYC",
-  "engine": {
+  "engines": {
     "node": "6.6.0"
   },
   "main": "app.js",
