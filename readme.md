@@ -32,8 +32,7 @@ This App allows users to search for parks with soccer facilities in a given area
 * MongoDB
 
 ##Sources##
-Lots and lots of help from Bobby King's excellent [user_auth_itunes](https://git.generalassemb.ly/wdi-nyc-60/user_auth_itunes) example, most notably his work with bcrypt.
-Thanks to Paris Leach for help merging the APIs. 
+Lots and lots of help from Bobby King's excellent [user_auth_itunes](https://git.generalassemb.ly/wdi-nyc-60/user_auth_itunes) example, most notably his work with bcrypt. Thanks to Paris Leach for help merging the APIs and to Rafael Pacas for help with user authentication.
 
 ##Hurdles##
 * "Measure twice, cut once" are some of the wisest words ever uttered

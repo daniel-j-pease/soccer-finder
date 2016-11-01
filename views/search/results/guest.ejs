@@ -16,6 +16,7 @@
     <a href="/login">Log In</a>
   </div>
 
+    <%// thanks to Paris Leach! %>
     <% let newObj = {} %>
     <% for (let i = 0; i < parks.length; i++) { %>
       <% newObj[parks[i].gispropnum] = parks[i] %>
@@ -35,6 +36,7 @@
       newObj[key].flagfootba === 'Yes'
     ) { %>
 
+      <%// automatically display some information %>
       <div id="teaser<%= key %>" class="teaser">
         <div class="signname"><%= newObj[key].signname %></div>
         <div><%= newObj[key].location %></div>
@@ -42,6 +44,7 @@
         <button id="open<%= key %>" class="open button">Learn More</button>
       </div>
 
+      <%// on command reveal more information %>
       <div id="modal<%= key %>" class="modal">
         <div><%= newObj[key].signname %></div>
         <div><%= newObj[key].address %></div>
@@ -60,7 +63,7 @@
               </div>
             <% } %>
           <% } %>
-<button id="close<%= key %>" class="close button">Close</button>
+        <button id="close<%= key %>" class="close button">Close</button>
       </div>
     <% } %>
   <% } %>

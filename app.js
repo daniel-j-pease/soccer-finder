@@ -2,15 +2,14 @@ const express         = require('express');
 const logger          = require('morgan');
 const bodyParser      = require('body-parser');
 const methodOverride  = require('method-override');
-//what does silent:true do?
 const dotEnv          = require('dotenv').config({silent: true});
 const session         = require('express-session');
 const cookieParser    = require('cookie-parser');
 const path            = require('path')
 
 const app             = express();
-const PORT            = process.argv[2] || process.env.PORT || 3000;
-const SECRET          = 'maybeishouldgobacktowaitingtables';
+const PORT            = process.env.PORT || 3000;
+const SECRET          = 'shh';
 
 const homeRoute = require('./routes/home');
 const authRoute = require('./routes/auth');

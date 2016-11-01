@@ -1,6 +1,6 @@
 const fetch = require('node-fetch');
 
-// DPR Athletic Facilities
+// NYC Open Data Athletic Facilities
 const API_URL = 'https://data.cityofnewyork.us/resource/9wwi-sb8x.json?';
 const APP_TOKEN = process.env.APP_TOKEN;
 

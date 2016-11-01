@@ -4,16 +4,14 @@ const { authenticate }   = require('../../lib/auth');
 const { getFacs } = require('../../services/facs');
 const { getGames, makeGame } = require('../../models/games');
 
+//prepare search for user
 router.get('/', authenticate, (req, res) => {
   res.render('search/user', {
     user: res.user,
   });
 });
 
-router.post('/again', getGames, authenticate, (req, res) => {
-  res.redirect('/userSearch');
-});
-
+//display search results to user
 router.post('/', getParks, getFacs, getGames, authenticate, (req, res) => {
   res.render('search/results/user', {
     parks: res.parks || [],

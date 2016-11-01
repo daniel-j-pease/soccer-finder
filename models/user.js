@@ -7,12 +7,11 @@ const bcrypt       = require('bcryptjs');
 
 const SALTROUNDS = 10;
 
+//thanks to Rafael Pacas!
 function createUser(req, res, next) {
   const userObject = {
     username: req.body.user.username,
     email: req.body.user.email,
-
-    // Store hashed password
     password: bcrypt.hashSync(req.body.user.password, SALTROUNDS)
   };
 
@@ -28,6 +27,7 @@ function createUser(req, res, next) {
   });
 }
 
+//thanks to Rafael Pacas!
 function getUserById(id) {
   return getDB().then((db) => {
     const promise = new Promise((resolve, reject) => {
@@ -42,6 +42,7 @@ function getUserById(id) {
   });
 }
 
+//thanks to Rafael Pacas!
 function getUserByUsername(username) {
   return getDB().then((db) => {
     const promise = new Promise((resolve, reject) => {

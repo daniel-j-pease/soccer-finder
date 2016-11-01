@@ -5,6 +5,7 @@ const makeGame = require('../models/games');
 const deleteGame = require('../models/games');
 const { authenticate }   = require('../lib/auth');
 
+//render profile
 profileRouter.get('/', authenticate, getMyGames.getMyGames, (req, res) => {
   res.render('profile', {
     user: res.user || [],
@@ -12,10 +13,12 @@ profileRouter.get('/', authenticate, getMyGames.getMyGames, (req, res) => {
   });
 });
 
+//show a logged in users' games
 profileRouter.post('/games', getGames.getGames, getMyGames.getMyGames, makeGame.makeGame, (req, res) => {
   res.redirect('/userSearch');
 });
 
+//remove a player's game
 profileRouter.delete('/games/:id', deleteGame.deleteGame, (req, res) => {
   res.redirect('/profile');
 });
