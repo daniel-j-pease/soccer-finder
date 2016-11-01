@@ -66,9 +66,23 @@ function deleteGame(req, res, next) {
   return false;
 }
 
+function editGame(req, res, next) {
+  getDB().then((db) => {
+    db.collection('games')
+    .findAndModify({ _id: ObjectID(req.params.id)}, [], {$set: req.body.name}, {new: true}, (editErr, results) => {
+        if(editErr) return next(editErr);
+        console.log(edited);
+        res.edited = results;
+        db.close();
+        return next();
+      })
+  })
+}
+
 module.exports = {
   getGames,
   getMyGames,
   makeGame,
   deleteGame,
+  editGame,
 };

@@ -20,9 +20,13 @@
       <% for (let i = 0; i < games.length; i++) { %>
         <div class="game">
           <div> game name: <%= games[i].name %> </div>
+          <form action="/profile/edit/<%= games[i]._id %>?_method=PUT" method="POST">
+            <input type="text" name="games[name]" placeholder="edit game name">
+            <input type="submit" value="edit">
+          </form>
           <div> date: <%= games[i].date %> </div>
           <div> time: <%= games[i].time %> </div>
-          <form action="/profile/games/<%= games[i]._id %>?_method=DELETE" method="POST">
+          <form action="/profile/<%= games[i]._id %>?_method=DELETE" method="POST">
             <input type="submit" value="delete">
           </form>
         </div>
