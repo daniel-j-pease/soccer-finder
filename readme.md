@@ -18,11 +18,11 @@ This App allows users to search for parks with soccer facilities in a given area
 * Home Page
 ![homepage](http://i.imgur.com/Yg8Lt23.jpg)
 * Path to search results
-![path](http://i.imgur.com/9P1bu7H)
+![path](http://i.imgur.com/9P1bu7H.jpg)
 * Mapping user vs. guest
-![uservsguest](http://i.imgur.com/4ohJXHZ)
+![uservsguest](http://i.imgur.com/4ohJXHZ.jpg)
 * Modal 
-![Modal](http://i.imgur.com/nflhVtu)
+![Modal](http://i.imgur.com/nflhVtu.jpg)
 
 ##Technologies##
 * NYCOpenData - [Parks Properties](https://data.cityofnewyork.us/City-Government/Parks-Properties/rjaj-zgq7)
