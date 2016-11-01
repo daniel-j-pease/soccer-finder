@@ -11,7 +11,7 @@ This App allows users to search for parks with soccer facilities in a given area
 ##Wireframe##
  
 * Home Page
-![homepage](http://imgur.com/Yg8Lt23)
+[Imgur](http://i.imgur.com/Yg8Lt23.jpg)
 
 ##Technologies##
 
