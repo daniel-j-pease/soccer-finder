@@ -1,6 +1,8 @@
 #soccerFinder#
+
 ##Summary##
 This App allows users to search for parks with soccer facilities in a given area in NYC. Guests may view parks and any associated games. Users may create new games and view games they've created on their profile page.
+
 ##Approach##
 1. create user story
 2. find APIs/trawl for useful information
@@ -27,9 +29,11 @@ This App allows users to search for parks with soccer facilities in a given area
 * NODE
 * Express
 * MongoDB
+
 ##Sources##
 Lots and lots of help from Bobby King's excellent [user_auth_itunes](https://git.generalassemb.ly/wdi-nyc-60/user_auth_itunes) example, most notably his work with bcrypt.
 Thanks to Paris Leach for help merging the APIs. 
+
 ##Hurdles##
 * "Measure twice, cut once" are some of the wisest words ever uttered
 * APIs yielded very similar, but slightly different, objects (which needed to be merged)
