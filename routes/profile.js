@@ -24,8 +24,8 @@ profileRouter.delete('/games/:id', deleteGame.deleteGame, (req, res) => {
   res.redirect('/profile');
 });
 
-profileRouter.put('/edit/:id', editGame.editGame, (req, res) => {
-  res.redirect('/');
-})
+// profileRouter.put('/edit/:id', editGame.editGame, (req, res) => {
+//   res.redirect('/');
+// })
 
 module.exports = profileRouter;
